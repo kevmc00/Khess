@@ -10,7 +10,7 @@ export class King extends Piece{
     pieceTypeCode(){
         return "k";
     }
-    getValidMoves(x, y, pieceMatrix){
+    getValidMoves(x, y, pieceMatrix, passantablePawn){
         let moves =  iterateShifts(this.incrementalMoves, x, y, pieceMatrix, this.color);
         let castles = this.getCastles(x, y, pieceMatrix);
         return moves.concat(castles);

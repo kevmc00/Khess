@@ -6,12 +6,14 @@ export class Bishop extends Piece {
         super(color);
         this.incrementalMoves = [[1, 1], [-1, -1], [1, -1], [-1, 1]]
     }
+    getValue(){
+        return 3;
+    }
     pieceTypeCode(){
         return "b";
     }
 
-
-    getValidMoves(x, y, pieceMatrix){
+    getValidMoves(x, y, pieceMatrix, passantablePawn){
         return iterateRepeatedShifts(this.incrementalMoves, x, y, pieceMatrix, this.color)
      }
 }

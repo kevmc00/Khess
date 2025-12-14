@@ -6,11 +6,16 @@ export class Knight extends Piece{
         super(color);
         this.incrementalMoves = [[2, 1], [2, -1], [-2, 1], [-2, -1]]
     }
+
+    getValue(){
+        return 3;
+    }
+
     pieceTypeCode(){
         return "kn";
     }
 
-    getValidMoves(x, y, pieceMatrix){
+    getValidMoves(x, y, pieceMatrix, passantablePawn){
         return iterateShifts(this.incrementalMoves, x, y, pieceMatrix, this.color)
     }
 }

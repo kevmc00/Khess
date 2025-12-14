@@ -8,10 +8,13 @@ export class Pawn extends Piece{
         super(color);
         this.direction = this.color === "w" ? -1 : +1;
     }
+    getValue(){
+        return 1;
+    }
     pieceTypeCode(){
         return "p";
     }
-    getValidMoves(x, y, pieceMatrix){
+    getValidMoves(x, y, pieceMatrix, passantablePawn){
         let moves = [];
         let diagonal1 = [x + this.direction, y + this.direction];
         let diagonal2 = [x + this.direction, y - this.direction];
@@ -21,7 +24,9 @@ export class Pawn extends Piece{
         if(getPieceAtPosition(diagonal2, pieceMatrix) && getPieceAtPosition(diagonal2, pieceMatrix).color != this.color){
             moves.push(diagonal2)
         }
-
+        if(passantablePawn && passantablePawn.x === x && (passantablePawn.y === y + 1 || passantablePawn.y === y - 1)){
+            moves.push([passantablePawn.x + this.direction, passantablePawn.y])
+        }
         let moveOneSquare = [x + this.direction, y]
         if(isMoveOnBoard(moveOneSquare) && !isMoveObstructed(moveOneSquare, pieceMatrix)){
             moves.push(moveOneSquare);

@@ -4,6 +4,10 @@ export class Piece {
         this.hasMoved = false;
     }
 
+    getValue(){
+        return 0;
+    }
+
     pieceTypeCode(){
         return "";
     }
@@ -12,7 +16,7 @@ export class Piece {
         return this.color + this.pieceTypeCode();
     }
 
-    getValidMoves(x, y, pieceMatrix){
+    getValidMoves(x, y, pieceMatrix, passantablePawn){
         return [];
     }
 
