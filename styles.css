@@ -1,0 +1,30 @@
+.light {
+    background-color: beige;
+    height: 50px;
+    width: 50px;
+}
+
+.dark {
+    background-color: forestgreen;
+    height: 50px;
+    width: 50px;
+}
+
+th {
+    border: 1px solid black;
+  }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0; 
+}
+
+.screen {
+    border-color: red;
+    border-width: 20px;
+}
+
+.piece {
+    height: 50px;
+    width: 50px;
+}
